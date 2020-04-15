@@ -1,4 +1,4 @@
-package Person;
+package Personpackage;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ public class Teacher extends Person {
     private ArrayList<Student> students;
     public Teacher(String name, String email) {
         super(name, email);
+        Person.addPerson(this);
     }
 
     public void addStudent(Student student)

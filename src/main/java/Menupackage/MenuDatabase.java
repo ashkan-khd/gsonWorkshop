@@ -1,4 +1,4 @@
-package Menu;
+package Menupackage;
 
 import java.util.HashMap;
 
@@ -13,13 +13,16 @@ public class MenuDatabase {
     private void setJsons() {
         jsons.put("MainMenu", "{\n" +
                 "  \"name\" : \"MainMenu\",\n" +
-                "  \"menus\" : [\n" +
+                "  \"options\" : [\n" +
                 "    \"StudentMenu\",\n" +
                 "    \"TeacherMenu\"\n" +
                 "  ]\n" +
                 "}");
         jsons.put("StudentMenu", "{\n" +
                 "  \"name\" : \"StudentMenu\",\n" +
+                "  \"options\": [\n" +
+                "    \"Sign In\", \"Sign Up\", \"Show All Students\"\n" +
+                "  ],\n" +
                 "  \"derivedMenu\" : \"MainMenu\"\n" +
                 "}");
         jsons.put("TeacherMenu", "{\n" +

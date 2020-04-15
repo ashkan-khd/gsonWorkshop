@@ -1,26 +1,31 @@
-package Menu;
+package Menupackage;
 
+import Controller.Control;
 import com.google.gson.GsonBuilder;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Menu {
-    private static Scanner in;
+public class Menu implements MenuOption{
+    public static Scanner in;
     private static MenuDatabase database;
+    public static Control control;
     private String name;
-    private ArrayList<String> menus;
+    private ArrayList<String> options;
     private String derivedMenu;
 
-    public Menu(String name, ArrayList<String> menus, String derivedMenu) {
+
+    public Menu(String name, String derivedMenu) {
         this.name = name;
-        this.menus = menus;
         this.derivedMenu = derivedMenu;
+        this.options = new ArrayList<String>();
     }
 
     public static void setScanner(Scanner in) {
         Menu.in = in;
         database = MenuDatabase.getDatabase();
+        control = Control.getInstance();
     }
 
     public static Menu makeMenu(String json)
@@ -29,17 +34,18 @@ public class Menu {
         return menu;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void show()
     {
         System.out.println(this.name + ":");
         if(derivedMenu != null)
             System.out.println("0. Back");
-        if(menus != null)
+        for(int i = 0; i < options.size(); ++i)
         {
-            for(int i = 0; i < menus.size(); ++i)
-            {
-                System.out.println("" + (i+1) + ". " + menus.get(i));
-            }
+            System.out.println("" + (i+1) + ". " + options.get(i));
         }
         this.execute();
     }
@@ -49,15 +55,21 @@ public class Menu {
         int command = in.nextInt();
         if(command == 0 && derivedMenu != null)
             nextMenu = Menu.makeMenu(database.getJson(derivedMenu));
-        if(menus != null)
+        for(int i = 0; i < options.size(); ++i)
         {
-            for(int i = 0; i < this.menus.size(); ++i)
+            if(command == i + 1)
             {
-                if(command == i + 1)
-                    nextMenu = Menu.makeMenu(database.getJson(this.menus.get(i)));
+                if(control.functions.containsKey(options.get(i)))
+                {
+                    control.functions.get(options.get(i)).doSth();
+                }
+                else
+                {
+                    nextMenu = Menu.makeMenu(database.getJson(options.get(i)));
+                }
             }
         }
-        if(nextMenu == this)
+        if(command > options.size())
             System.out.println("Invalid Command");
         nextMenu.show();
     }

@@ -1,4 +1,7 @@
 {
   "name" : "StudentMenu",
+  "options": [
+    "Sign In", "Sign Up", "Show All Students"
+  ],
   "derivedMenu" : "MainMenu"
 }

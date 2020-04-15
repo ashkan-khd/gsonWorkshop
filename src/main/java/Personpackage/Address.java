@@ -1,4 +1,4 @@
-package Person;
+package Personpackage;
 
 public class Address {
     private String province;
@@ -27,5 +27,10 @@ public class Address {
 
     public String getPostalCard() {
         return postalCard;
+    }
+
+    @Override
+    public String toString() {
+        return "Province: " + province + "City: " + city + "Street: " + street + "PostalCard: " + postalCard;
     }
 }
