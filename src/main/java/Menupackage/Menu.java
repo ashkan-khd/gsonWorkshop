@@ -3,7 +3,6 @@ package Menupackage;
 import Controller.Control;
 import com.google.gson.GsonBuilder;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -52,7 +51,7 @@ public class Menu implements MenuOption{
 
     private void execute() {
         Menu nextMenu = this;
-        int command = in.nextInt();
+        int command = Integer.parseInt(in.nextLine());
         if(command == 0 && derivedMenu != null)
             nextMenu = Menu.makeMenu(database.getJson(derivedMenu));
         for(int i = 0; i < options.size(); ++i)
