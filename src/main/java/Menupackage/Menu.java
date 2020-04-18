@@ -31,7 +31,6 @@ public class Menu{
 
     public static Menu makeMenu(String menuName)
     {
-        Menu.setJsons();
         String json = "";
         try {
             json = Menu.getJsonFromDb(menuName);
@@ -51,48 +50,6 @@ public class Menu{
             str += "\n";
         }
         return str.substring(0, str.length() - 1);
-    }
-
-    private static void setJsons() {
-        File file = new File("Menujsons");
-        if(file.mkdir())
-        {
-            File mainMenuJson = new File("Menujsons\\Main Menu.json");
-            try {
-                if(mainMenuJson.createNewFile())
-                {
-                    FileWriter writer = new FileWriter(mainMenuJson);
-                    writer.write("{\n" +
-                            "  \"name\" : \"Main Menu\",\n" +
-                            "  \"options\" : [\n" +
-                            "    \"Student Menu\",\n" +
-                            "    \"Teacher Menu\"\n" +
-                            "  ]\n" +
-                            "}");
-                    writer.close();
-                }
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-            File studentMenuJson = new File("Menujsons\\Student Menu.json");
-            try {
-                if(studentMenuJson.createNewFile())
-                {
-                    FileWriter writer = new FileWriter(studentMenuJson);
-                    writer.write("{\n" +
-                            "  \"name\" : \"Student Menu\",\n" +
-                            "  \"options\": [\n" +
-                            "    \"Sign In\", \"Sign Up\", \"Show All Students\"\n" +
-                            "  ],\n" +
-                            "  \"derivedMenu\" : \"Main Menu\"\n" +
-                            "}");
-                    writer.close();
-                }
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-
-        }
     }
 
     public String getName() {
