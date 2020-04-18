@@ -26,7 +26,7 @@ public abstract class Person {
                 return name.endsWith(".json");
             }
         };
-        File[] teacherFiles = teacherFolder.listFiles();
+        File[] teacherFiles = teacherFolder.listFiles(filter);
         for (File teacherFile : teacherFiles) {
             allTeachers.add(getTeacherByFile(teacherFile));
         }
@@ -62,7 +62,7 @@ public abstract class Person {
                 return name.endsWith(".json");
             }
         };
-        File[] studentFiles = studentFolder.listFiles();
+        File[] studentFiles = studentFolder.listFiles(filter);
         for (File studentFile : studentFiles) {
             allStudents.add(getStudentByFile(studentFile));
         }
