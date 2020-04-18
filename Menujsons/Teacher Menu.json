@@ -1,0 +1,7 @@
+{
+  "name" : "Teacher Menu",
+  "options": [
+    "Sign In Teacher", "Sign Up Teacher", "Show All Teachers"
+  ],
+  "derivedMenu" : "Main Menu"
+}

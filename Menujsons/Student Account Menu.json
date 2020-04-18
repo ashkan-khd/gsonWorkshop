@@ -1,0 +1,7 @@
+{
+  "name" : "Student Account Menu",
+  "options": [
+    "Show Info", "Show Teachers", "Edit Info", "Edit Teachers"
+  ],
+  "derivedMenu" : "Student Menu"
+}
