@@ -1,0 +1,7 @@
+{
+  "name" : "Main Menu",
+  "options" : [
+    "Student Menu",
+    "Teacher Menu"
+  ]
+}

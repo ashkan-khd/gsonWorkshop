@@ -62,14 +62,17 @@ public class Control {
     {
         while (true)
         {
+            System.out.println("0. Back");
             System.out.println("Please Enter Your Name: ");
             String name = Menu.in.nextLine();
+            if(Integer.parseInt(name) == 0)
+                return;
             Student student = Person.getStudentByName(name);
             if(student == null)
                 System.out.println("name is not valid");
             else
             {
-
+                System.out.println("there is a student with this name");
             }
         }
     }

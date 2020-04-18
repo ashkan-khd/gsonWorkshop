@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         MenuDatabase menuDatabase = MenuDatabase.getDatabase();
-        Menu mainMenu = Menu.makeMenu(menuDatabase.getJson("MainMenu"));
+        Menu mainMenu = Menu.makeMenu("Main Menu");
         Menu.setScanner(new Scanner(System.in));
         mainMenu.show();
     }
