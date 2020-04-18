@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Menu implements MenuOption{
+public class Menu{
     public static Scanner in;
     public static Control control;
     private String name;
@@ -133,5 +133,9 @@ public class Menu implements MenuOption{
         if(command > options.size())
             System.out.println("Invalid Command");
         nextMenu.show();
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

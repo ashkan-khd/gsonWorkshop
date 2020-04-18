@@ -1,5 +1,5 @@
 package Menupackage;
 
-public interface FuntioningOption extends MenuOption {
+public interface FuntioningOption {
     void doSth();
 }

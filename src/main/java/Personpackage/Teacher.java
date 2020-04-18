@@ -16,4 +16,7 @@ public class Teacher extends Person {
             this.students = new ArrayList<Student>();
         this.students.add(student);
     }
+
+    public void newMe() {
+    }
 }
