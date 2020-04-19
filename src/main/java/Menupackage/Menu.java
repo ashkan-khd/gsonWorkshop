@@ -1,3 +1,4 @@
+
 package Menupackage;
 
 import Controller.Control;
@@ -56,7 +57,7 @@ public class Menu{
         return name;
     }
 
-    public void show()
+    public Menu show()
     {
         System.out.println(this.name + ":");
         if(derivedMenu != null)
@@ -65,10 +66,10 @@ public class Menu{
         {
             System.out.println("" + (i+1) + ". " + options.get(i));
         }
-        this.execute();
+        return this.execute();
     }
 
-    private void execute() {
+    private Menu execute() {
         Menu nextMenu = this;
         int command = Integer.parseInt(in.nextLine());
         if(command == 0 && derivedMenu != null)
@@ -89,7 +90,7 @@ public class Menu{
         }
         if(command > options.size())
             System.out.println("Invalid Command");
-        nextMenu.show();
+        return nextMenu;
     }
 
     public void setName(String name) {

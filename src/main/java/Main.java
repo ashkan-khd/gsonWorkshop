@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Menu mainMenu = Menu.makeMenu("Main Menu");
         Menu.setScanner(new Scanner(System.in));
-        mainMenu.show();
+
+        while(mainMenu != null)
+            mainMenu = mainMenu.show();
     }
 }
